@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RutModule } from 'rut-chileno';
+import { SidebarModule, IconModule, BadgeModule } from 'ng-cdbangular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,13 +16,16 @@ import { LoginComponent } from './pages/login/login.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RutModule
+    RutModule,
+    SidebarModule,
+    IconModule,
+    BadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

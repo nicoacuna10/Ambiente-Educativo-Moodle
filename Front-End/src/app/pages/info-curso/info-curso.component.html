@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="fondo">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Información curso</h1>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="info-box">
+
+                            <div class="row fila-datos">
+                                <div class="col-12">
+                                    <a href="/ficha-alumno">
+                                        <button class="btn btn-light">Volver a ficha</button>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="row fila-datos">
+                                <div class="col-6">
+                                    <p>Código:</p>
+                                </div>
+
+                                <div class="col-6">
+                                    <p>{{curso.codCurso}}</p>
+                                </div>
+                            </div>
+
+                            <div class="row fila-datos">
+                                <div class="col-6">
+                                    <p>Nombre:</p>
+                                </div>
+
+                                <div class="col-6">
+                                    <p>{{curso.nombre}}</p>
+                                </div>
+                            </div>
+
+                            <div class="row fila-datos">
+                                <div class="col-6">
+                                    <p>Docente:</p>
+                                </div>
+
+                                <div class="col-6">
+                                    <p>{{docente.nombre}}</p>
+                                </div>
+                            </div>
+
+                            <div class="row fila-datos">
+                                <div class="col-6">
+                                    <p>Email Docente:</p>
+                                </div>
+
+                                <div class="col-6">
+                                    <p>{{docente.email}}</p>
+                                </div>
+                            </div>
+
+                            <div class="row fila-datos">
+                                <div class="col-6">
+                                    <p>Horario:</p>
+                                </div>
+
+                                <div class="col-6">
+                                    <div *ngFor="let horario of horarios">
+                                        <p>{{horario.dia}} {{horario.horaInicio}} - {{horario.horaFin}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

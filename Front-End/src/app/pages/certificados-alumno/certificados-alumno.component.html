@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-12">
+            <div class="fondo">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Certificados</h1>
+                    </div>
+
+                    <div class="col-12">
+
+                        <div class="certificados-box">
+
+                            <div *ngIf="showInfo">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2>Nueva solicitud</h2>
+                                    </div>
+                                </div>
+
+                                <form [formGroup]="formCertificado" (ngSubmit)="solicitarCertificado()">
+
+                                    <div class="row fila-info">
+                                        <div class="col-1">
+                                            <input class="form-check-input" type="radio" name="tipo" id="tipo" value="1"
+                                                formControlName="tipo" (click)="mostrarDescripcion1()">
+                                        </div>
+
+                                        <div class="col-11 col-md-3">
+                                            <label class="form-check-label">Alumno Regular</label>
+                                        </div>
+
+                                        <div class="col-1">
+                                            <input class="form-check-input" type="radio" name="tipo" id="tipo" value="2"
+                                                formControlName="tipo" (click)="mostrarDescripcion2()">
+                                        </div>
+
+                                        <div class="col-11 col-md-3">
+                                            <label class="form-check-label">Concentración de Notas</label>
+                                        </div>
+
+                                        <div class="col-4">
+                                            <button class="btn btn-outline-info" type="submit">Solicitar</button>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row fila-info">
+
+
+                                            <div *ngIf="show1" class="alert alert-info col-12" role="alert">
+                                                <p id="descripcion-certificado1">El certificado de alumno de regular da
+                                                constancia de que alumno se encuentra estudiando en un recinto
+                                                educacional.</p>
+                                              </div>
+
+
+                                        <div *ngIf="show2" class="alert alert-info col-12" role="alert">
+                                            <p id="descripcion-certificado2">El certificado de concentración de notas
+                                                permite conocer el rendimiento académico del alumno.</p>
+                                        </div>
+
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+
+                            <div *ngIf="showMessage">
+                                <div class="row fila-info">
+                                    <div class="col-12">
+                                        Certificado generado con éxito, revise sus archivos descargados para
+                                        visualizarlo.
+                                    </div>
+
+                                    <div class="col-12">
+                                        <a href="/ficha-alumno">
+                                            <button class="btn btn-outline-secondary">Volver a ficha</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

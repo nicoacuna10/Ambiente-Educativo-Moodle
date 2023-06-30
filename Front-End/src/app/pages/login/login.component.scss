@@ -1,0 +1,71 @@
+.fondo{
+    background: linear-gradient(32deg, #c8dfe2 0%, #a7bcf7 50%, #688391 100%);
+}
+
+@media screen and (max-width: 575px){
+    .login-square{
+        margin: 5% 1.75% 5% 1.75%;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px){
+    .login-square{
+        margin: 5% 4% 5% 4%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .login-square{
+        margin: 5% 10% 5% 10%;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .login-square{
+        margin: 5% 25% 5% 25%;
+    }
+}
+
+.login-square{
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 2.5%;
+
+}
+
+h1{
+    margin: 0% 0% 0% 2.5%;
+}
+
+.form-group{
+    margin: 2.5% 0% 2.5% 0%;
+}
+
+label{
+    font-size: large;
+}
+
+input{
+    font-size: large;
+    width: 100%;
+    height: 40px;
+}
+
+.link-text{
+    color: #00abc5;
+    text-decoration: underline;
+    text-decoration-color: #00abc5;
+    font-size: medium;
+    font-style: italic;
+}
+
+.btn-ingresar{
+    background: linear-gradient(32deg, #ed872d 0%, #e7622f 50%, #d93934 100%);
+    border: 0.75px solid #000000;
+    border-radius: 15px;
+
+    color: #EEF4ED;
+    
+    width: 100%;
+    height: 40px;
+}

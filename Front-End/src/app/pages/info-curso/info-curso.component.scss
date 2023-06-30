@@ -1,0 +1,70 @@
+.fondo{
+    background: linear-gradient(32deg, #c8dfe2 0%, #a7bcf7 50%, #688391 100%);
+}
+
+@media screen and (max-width: 575px){
+    h1{
+        margin: 1% 0% 0% 1.75%
+    }
+
+    .info-box{
+        margin: 5% 1.75% 2.5% 1.75%;
+    }
+
+    p{
+        font-size: x-small;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px){
+    h1{
+        margin: 1% 0% 0% 4%
+    }
+
+    .info-box{
+        margin: 5% 4% 2.5% 4%;
+    }
+
+    p{
+        font-size: small;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    h1{
+        margin: 1% 0% 0% 10%
+    }
+
+    .info-box{
+        margin: 5% 10% 2.5% 10%;
+    }
+
+    p{
+        font-size: medium;
+    }
+}
+
+@media screen and (min-width: 992px){
+    h1{
+        margin: 1% 0% 0% 15%
+    }
+
+    .info-box{
+        margin: 5% 15% 2.5% 15%;
+    }
+
+    p{
+        font-size: large;
+    }
+}
+
+
+.info-box{
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 2.5%
+}
+
+.fila-datos{
+    margin: 0.5%;
+}

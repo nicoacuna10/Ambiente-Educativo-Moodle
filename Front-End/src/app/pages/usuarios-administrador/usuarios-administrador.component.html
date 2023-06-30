@@ -1,0 +1,155 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="fondo">
+
+                <div class="row">
+
+                    <div class="col-12">
+                        <h1>Usuarios</h1>
+                    </div>
+                    <div class="col-12">
+                        <div class="users-section">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2>Alumnos</h2>
+                                </div>
+                            </div>
+
+
+                            <div *ngFor="let user of users">
+                                <div *ngIf="user.idTipo==1">
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="user-item">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <p>{{user.nombre}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="div">
+                                                        <p>{{user.rut}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="users-section">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2>Docentes</h2>
+                                </div>
+                            </div>
+
+                            <div *ngFor="let user of users">
+                                <div *ngIf="user.idTipo==2">
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="user-item">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <p>{{user.nombre}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="div">
+                                                        <p>{{user.rut}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="users-section">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2>Administradores</h2>
+                                </div>
+                            </div>
+
+                            <div *ngFor="let user of users">
+                                <div *ngIf="user.idTipo==3">
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="user-item">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <p>{{user.nombre}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="div">
+                                                        <p>{{user.rut}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="users-section">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2>Apoderados</h2>
+                                </div>
+                            </div>
+
+                            <div *ngFor="let user of users">
+                                <div *ngIf="user.idTipo==4">
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="user-item">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <p>{{user.nombre}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="div">
+                                                        <p>{{user.rut}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

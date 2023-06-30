@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="fondo">
+                <div class="row">
+                    <div class="col-12">
+
+                <div class="login-square">
+                    <h1>Iniciar Sesion</h1>
+                    <form [formGroup]="formInicioSesion" (ngSubmit)="iniciarSesion()" class="formulario">
+
+                        <div class="row form-group">
+                            <div class="col-12">
+                                <label class="form-label">RUT</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" id="rut" class="form-control" formControlName="rut" (input)="inputEvent($event)" >
+                            </div>
+
+                            <div *ngIf="formInicioSesion.controls['rut'].getError('required') && formInicioSesion.controls['rut'].touched" class="col-12 text-danger">
+                                El rut es requerido
+                            </div>
+
+                            <div *ngIf="formInicioSesion.controls['rut'].getError('rutnovalido') && formInicioSesion.controls['rut'].touched" class="col-12 text-danger">
+                                El rut no es valido
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-12">
+                                <label class="form-label">Contraseña</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="password" id="password" class="form-control" formControlName="password">
+                            </div>
+
+                            <div *ngIf="formInicioSesion.controls['password'].getError('required') && formInicioSesion.controls['password'].touched" class="col text-danger">
+                                La contraseña es requerida
+                            </div>
+
+                            <div *ngIf="formInicioSesion.controls['password'].getError('pattern') && formInicioSesion.controls['password'].touched" class="col text-danger">
+                                El formato de la contraseña no es correcto
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-12">
+                                <a href="#">
+                                    <p class="link-text">¿Olvidaste tu contraseña?</p>
+                                </a>
+                            </div>
+
+                            <div class="col-12 col-sm-3">
+                                <button type="submit" class="btn-ingresar" [disabled]="formInicioSesion.invalid">Ingresar</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div *ngIf="showMensaje" class="alert alert-danger" role="alert">
+                                Creedenciales incorrectas
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            
+        </div> 
+                </div>
+           
+        </div>
+        </div>
+        
+        
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="contentainer-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="fondo">
+                <div class="row">
+                    <div class="col-12">
+
+                        <h1>Ficha académica</h1>
+
+                        <div class="mensaje-ficha">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2>¡Bienvenido, {{user.nombre}}!</h2>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>A continuación, encontarás información de cada uno de los cursos que tienes
+                                        vigente actualmente.</p>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <div class="lista-cursos">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="cuadricula-tabla">
+                                        <p class="encabezado-tabla">Código</p>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-5">
+                                    <div class="cuadricula-tabla">
+                                        <p class="encabezado-tabla">Curso</p>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="cuadricula-tabla">
+                                        <p class="encabezado-tabla">Información</p>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="cuadricula-tabla">
+                                        <p class="encabezado-tabla">Aula</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div *ngFor="let curso of cursos; let i = index">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="cuadricula-tabla">
+                                            <p>{{curso.codCurso}}</p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-5">
+                                        <div class="cuadricula-tabla">
+                                            <p>{{curso.nombre}}</p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-2">
+                                        <div class="cuadricula-tabla">
+                                            <a [routerLink]="['/info-curso', {i}]">
+                                                <img src="../../../assets/images/eye.png" class="img-fluid img-icon">
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-2">
+                                        <div class="cuadricula-tabla">
+                                            <img src="../../../assets/images/plus.png" class="img-fluid img-icon">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

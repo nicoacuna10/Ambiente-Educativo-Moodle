@@ -1,0 +1,33 @@
+header{
+    background-color: #e9e9e9 !important;
+
+    margin: 0% 0% 2% 0%;
+    border-radius: 5px;
+    height:100%;
+}
+
+.navbar{
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+#navbarNav{
+    justify-content: flex-end;
+}
+.navbar .navbar-nav .nav-item .nav-link{
+    margin:  0 50px 0 50px;
+    color: #000000 ;
+}   
+.nav-item {
+    border-radius: 10px;
+    background: linear-gradient(32deg, #c8dfe2 0%, #a7bcf7 50%, #688391 100%) no-repeat right bottom / 0 var(--bg-h);
+    transition: background-size 350ms;
+    --bg-h: 100%;
+}
+.nav-item:where(:hover, :focus-visible) {
+    background-size: 100% var(--bg-h);
+    background-position-x: left; 
+}
+
+
+
+

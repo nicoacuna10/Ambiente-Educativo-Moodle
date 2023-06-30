@@ -1,0 +1,120 @@
+.fondo{
+    background: linear-gradient(32deg, #c8dfe2 0%, #a7bcf7 50%, #688391 100%);
+}
+
+@media screen and (max-width: 575px){
+    h1{
+        margin: 1% 0% 0% 1.75%
+    }
+
+    .mensaje-ficha{
+        margin: 5% 1.75% 2.5% 1.75%;
+    }
+
+    .lista-cursos{
+        margin: 2.5% 1.75% 5% 1.75%;
+    }
+
+    .cuadricula-tabla{
+        margin: 0.1%;
+    }
+
+    p{
+        font-size: x-small;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px){
+    h1{
+        margin: 1% 0% 0% 4%
+    }
+
+    .mensaje-ficha{
+        margin: 5% 4% 2.5% 4%;
+    }
+
+    .lista-cursos{
+        margin: 2.5% 4% 5% 4%;
+    }
+
+    .cuadricula-tabla{
+        margin: 0.1%;
+    }
+
+    p{
+        font-size: small;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    h1{
+        margin: 1% 0% 0% 10%
+    }
+
+    .mensaje-ficha{
+        margin: 5% 10% 2.5% 10%;
+    }
+
+    .lista-cursos{
+        margin: 2.5% 10% 5% 10%;
+    }
+
+    .cuadricula-tabla{
+        margin: 0.5%;
+    }
+
+    p{
+        font-size: medium;
+    }
+}
+
+@media screen and (min-width: 992px){
+    h1{
+        margin: 1% 0% 0% 15%
+    }
+
+    .mensaje-ficha{
+        margin: 5% 15% 2.5% 15%;
+    }
+
+    .lista-cursos{
+        margin: 2.5% 15% 5% 15%;
+    }
+
+    .cuadricula-tabla{
+        margin: 0.5%;
+    }
+
+    p{
+        font-size: large;
+    }
+}
+
+
+.mensaje-ficha{
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 2.5%
+}
+
+
+.lista-cursos{
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 2%
+}
+
+.encabezado-tabla{
+    font-weight: bold;
+}
+
+.cuadricula-tabla{
+    background-color: #e9e9e9;
+    text-align: center;
+}
+
+
+.img-icon{
+    width: 32px;
+    height: 32px;
+}

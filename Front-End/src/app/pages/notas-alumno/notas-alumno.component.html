@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-12">
+            <div class="fondo">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Notas Alumnno</h1>
+                    </div>
+
+                    <div class="col-12">
+
+                        <div class="search-box">
+                            <form [formGroup]="formNotas" (ngSubmit)="obtenerNotas()">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label>Buscador de notas</label>
+                                    </div>
+
+                                    <div class="col-12 col-md-9">
+                                        <select class="form-select form-select-m" aria-label=".form-select-sm example"
+                                            formControlName="codigo">
+                                            <option disabled selected>Seleccione un curso</option>
+                                            <option *ngFor="let curso of cursos" [ngValue]="curso.codCurso">
+                                                {{curso.codCurso}} - {{curso.nombre}}
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-6 col-md-3">
+                                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="results-box">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Resultados de la búsqueda</p>
+                                </div>
+
+                                <div *ngIf="notasRegistradas && buttonClicked" class="col-12">
+                                    <div class="row">
+                                        <div *ngFor="let nota of notas; let i=index" class="col-12">
+                                            {{i}} : {{nota.nota_evaluacion}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="!notasRegistradas && buttonClicked" class="col-12">
+                                    <p>No se registran notas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

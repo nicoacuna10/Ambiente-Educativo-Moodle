@@ -1,0 +1,105 @@
+.fondo{
+    background: linear-gradient(32deg, #c8dfe2 0%, #a7bcf7 50%, #688391 100%);
+}
+
+@media screen and (max-width: 575px){
+    .left-down-section{
+        margin: 2.5% 0.875% 1.25% 0.875%;
+    }
+
+    .left-down-section{
+        margin: 1.25% 0.875% 2.5% 0.875%;
+    }
+
+    .right-section{
+        margin: 2.5% 0.875% 2.5% 0.875%;
+    }
+
+    p{
+        font-size: x-small;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px){
+    .left-upper-section{
+        margin: 2.5% 2% 1.25% 2%;
+    }
+
+    .left-down-section{
+        margin: 1.25% 2% 2.5% 2%;
+    }
+
+    .right-section{
+        margin: 2.5% 2% 2.5% 2%;
+    }
+
+    p{
+        font-size: small;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .left-upper-section{
+        margin: 2.5% 5% 1.25% 5%;
+    }
+
+    .left-down-section{
+        margin: 1.25% 5% 2.5% 5%;
+    }
+
+    .right-section{
+        margin: 2.5% 5% 2.5% 5%;
+    }
+
+    p{
+        font-size: medium;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .left-upper-section{
+        margin: 2.5% 7.5% 1.25% 7.5%;
+    }
+
+    .left-down-section{
+        margin: 1.25% 7.5% 2.5% 7.5%;
+    }
+
+    .right-section{
+        margin: 2.5% 7.5% 2.5% 7.5%;
+    }
+
+
+    p{
+        font-size: large;
+    }
+}
+
+
+.left-upper-section{
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 2.5%
+}
+
+.left-down-section{
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 2.5%
+}
+
+.caja-imagen{
+    padding: 2.5%;
+    text-align: center;
+}
+
+.caja-imagen img{
+    border-radius: 5px;
+    width:75%;
+}
+
+.right-section{
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 2.5%
+}

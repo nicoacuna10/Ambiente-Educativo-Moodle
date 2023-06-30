@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2023 a las 14:55:23
+-- Servidor: localhost
+-- Tiempo de generación: 01-07-2023 a las 00:12:12
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `ambienteeducativo`
+-- Base de datos: `AmbienteEducativo`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,8 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`idAlumno`, `nivel`, `seccion`, `idApoderado`) VALUES
-('5618', '4° Básico', 'B', '0000010982');
+('0000000005', '4° Básico', 'B', '0000000004'),
+('0000000009', '2° Medio', 'A', '0000000008');
 
 -- --------------------------------------------------------
 
@@ -61,10 +62,10 @@ CREATE TABLE `alumno_clase` (
 --
 
 INSERT INTO `alumno_clase` (`idAlumno`, `idClase`, `estaPresente`, `observacion`, `nota_evaluacion`, `tipo_evaluacion`) VALUES
-('5618', '8912', 0, NULL, NULL, NULL),
-('5618', '8934', 1, NULL, NULL, NULL),
-('5618', '9001', 1, NULL, 70, 'Prueba'),
-('5618', '9500', 1, NULL, 58, 'Prueba');
+('0000000005', '8912', 0, NULL, NULL, NULL),
+('0000000005', '8934', 1, NULL, NULL, NULL),
+('0000000005', '9001', 1, NULL, 70, 'Prueba'),
+('0000000005', '9500', 1, NULL, 58, 'Prueba');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,8 @@ CREATE TABLE `apoderado` (
 --
 
 INSERT INTO `apoderado` (`idApoderado`, `telefono`) VALUES
-('0000010982', '956123401');
+('0000000004', '956123401'),
+('0000000008', '958102355');
 
 -- --------------------------------------------------------
 
@@ -124,8 +126,8 @@ CREATE TABLE `curso` (
 --
 
 INSERT INTO `curso` (`codCurso`, `nombre`, `periodo`, `idDocente`) VALUES
-('LEN07-B', 'Lenguaje y Comunicación 4° Básico', '2024', '19762'),
-('MAT07-B', 'Matemáticas 4° Básico', '2024', '12456');
+('LEN07-B', 'Lenguaje y Comunicación 4° Básico', '2024', '0000000003'),
+('MAT07-B', 'Matemáticas 4° Básico', '2024', '0000000002');
 
 -- --------------------------------------------------------
 
@@ -142,8 +144,8 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`idDocente`) VALUES
-('12456'),
-('19762');
+('0000000002'),
+('0000000003');
 
 -- --------------------------------------------------------
 
@@ -213,11 +215,15 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nombre`, `rut`, `password`, `email`, `direccion`, `idTipo`) VALUES
-('0000000022', 'Nicolás Mauricio Acuña Órdenes', '20.881.821-K', 'jHop123$', 'nicolas.acuna.o@mail.pucv.cl', 'Libertad 12345, Viña del mar', 3),
-('0000005618', 'Ignacio Trigo Hidalgo', '24.567.890-8', 'Hola123!', 'email@example.com', 'Los lirios 123, Valparaíso', 1),
-('0000010982', 'Mónica Macarena Hidalgo Astudillo', '13.451.980-0', 'MoM!hllo10', 'monica.hidalgo32@gmail.com', 'Los lirios 123, Valparaíso', 4),
-('12456', 'Héctor Miranda Ríos', '15.623.091-K', 'Hec89!rDjn$', 'hector0mirios@outlook.com', 'Avenida libertad 4568, Viña del Mar', 2),
-('19762', 'Juana Maria Lagos Olmedo', '8.912.531-6', 'juanaM123$', 'juanamaria.lagos7@gmail.com', 'Los tulipanes 567, Quilpué', 2);
+('0000000001', 'Nicolás Mauricio Acuña Órdenes', '20.881.821-K', 'jHop123$', 'nicolas.acuna.o@mail.pucv.cl', 'Libertad 12345, Viña del mar', 3),
+('0000000002', 'Héctor Miranda Ríos', '15.623.091-K', 'Hec89!rDjn$', 'hector0mirios@outlook.com', 'Avenida libertad 4568, Viña del Mar', 2),
+('0000000003', 'Juana Maria Lagos Olmedo', '8.912.531-6', 'juanaM123$', 'juanamaria.lagos7@gmail.com', 'Los tulipanes 567, Quilpué', 2),
+('0000000004', 'Mónica Macarena Hidalgo Astudillo', '13.451.980-0', 'MoM!hllo10', 'monica.hidalgo32@gmail.com', 'Los lirios 123, Valparaíso', 4),
+('0000000005', 'Ignacio Trigo Hidalgo', '24.567.890-8', 'Hola123!', 'email@example.com', 'Los lirios 123, Valparaiso', 1),
+('0000000006', 'Nathalia', '20.919.493-7', 'Nath123%%', 'nathalia@mail.com', 'los aromos 123, viña del mar', 3),
+('0000000007', 'Javier Andaur', '20.123.456-5', 'Jav123%%', 'jav.and@mail.com', 'Las rosas 65, Valparaiso', 3),
+('0000000008', 'Ricardo de las heras', '9.123.746-6', 'ricar!23AS', 'ricardodelasheras@outlook.com', 'Avenida veintiuno 33, Villa Alemana', 4),
+('0000000009', 'Jose de las heras', '22.102.345-5', 'joseE$32', 'jose.delasheras@gmail.com', 'Avenida veintiuno 33, Villa Alemana', 1);
 
 --
 -- Índices para tablas volcadas
@@ -290,20 +296,21 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `alumno`
 --
 ALTER TABLE `alumno`
+  ADD CONSTRAINT `foreig_key_id_alumno` FOREIGN KEY (`idAlumno`) REFERENCES `usuario` (`idUsuario`) ON UPDATE CASCADE,
   ADD CONSTRAINT `foreign_key_id_Apoderado` FOREIGN KEY (`idApoderado`) REFERENCES `apoderado` (`idApoderado`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `alumno_clase`
 --
 ALTER TABLE `alumno_clase`
-  ADD CONSTRAINT `foreign_key_idAlumno` FOREIGN KEY (`idAlumno`) REFERENCES `alumno` (`idAlumno`),
-  ADD CONSTRAINT `foreign_key_idClase` FOREIGN KEY (`idClase`) REFERENCES `clase` (`idClase`);
+  ADD CONSTRAINT `foreign_key_idAlumno` FOREIGN KEY (`idAlumno`) REFERENCES `alumno` (`idAlumno`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `foreign_key_idClase` FOREIGN KEY (`idClase`) REFERENCES `clase` (`idClase`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `apoderado`
 --
 ALTER TABLE `apoderado`
-  ADD CONSTRAINT `foreign_key_idApoderado` FOREIGN KEY (`idApoderado`) REFERENCES `usuario` (`idUsuario`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `foreign_key_idApoderado` FOREIGN KEY (`idApoderado`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `clase`
@@ -315,7 +322,7 @@ ALTER TABLE `clase`
 -- Filtros para la tabla `curso`
 --
 ALTER TABLE `curso`
-  ADD CONSTRAINT `foreign_key_id_Docente` FOREIGN KEY (`idDocente`) REFERENCES `docente` (`idDocente`);
+  ADD CONSTRAINT `foreign_key_id_Docente` FOREIGN KEY (`idDocente`) REFERENCES `docente` (`idDocente`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `docente`

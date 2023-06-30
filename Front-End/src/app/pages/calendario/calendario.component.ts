@@ -31,14 +31,14 @@ export class CalendarioComponent {
     this.alumnoClaseService.getEventos(idAlumno).subscribe( res=>{
       let largo = Object.keys(res).length;
       if(largo > 0){
+        this.events=[];
         this.eventos = Object.values(res);
 
-        for(let i = 0; i<this.eventos.length; i++){
-          const evento: CalendarEvent = {
+        for(let i = 0; i<largo; i++){
+          this.events.push({
             start: new Date(this.eventos[i].fecha),
-            title: this.eventos[i].tipo_evaluacion
-          }
-          this.events.push(evento);
+            title: this.eventos[i].tipo_evaluacion +" "+this.eventos[i].nombre
+          });
         }
       }
     }, error => console.log(error)

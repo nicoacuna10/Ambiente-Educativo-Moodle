@@ -22,13 +22,14 @@ export class HeaderComponent implements OnInit{
   }
 
   esAlumno(){
-    if(this.usuarioService.obtenerRol()=="1"){
+    if(this.usuarioService.obtenerRol()==1){
       return true;
     }else return false;
+    
   }
 
   esAdmin(){
-    if(this.usuarioService.obtenerRol()=="3"){
+    if(this.usuarioService.obtenerRol()==3){
       return true;
     }else return false;
   }

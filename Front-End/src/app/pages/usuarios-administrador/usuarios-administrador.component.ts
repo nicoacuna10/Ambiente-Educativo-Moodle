@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class UsuariosAdministradorComponent {
 
   users!:any;
 
-  constructor(private usuarioService: UsuarioService){}
+  constructor(private usuarioService: UsuarioService, private router: Router){}
 
   ngOnInit(){
 
@@ -23,6 +24,22 @@ export class UsuariosAdministradorComponent {
       }
     }, error => console.log(error)
     )
+  }
+
+  crearCuentaAlumno(){
+    this.router.navigate(['crear-cuenta-alumno'])
+  }
+
+  crearCuentaDocente(){
+    this.router.navigate(['crear-cuenta-docente']);
+  }
+
+  crearCuentaAdministrador(){
+    this.router.navigate(['crear-cuenta-administrador']);
+  }
+
+  crearCuentaApoderado(){
+    this.router.navigate(['crear-cuenta-apoderado']);
   }
 
 }

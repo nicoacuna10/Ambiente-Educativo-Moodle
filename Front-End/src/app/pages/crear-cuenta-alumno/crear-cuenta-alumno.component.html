@@ -1,0 +1,198 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="fondo">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="crear-cuenta-section">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h1>Crear Cuenta Alumno</h1>
+                                </div>
+                            </div>
+
+                            <form [formGroup]="formCrearCuenta" (ngSubmit)="crearCuenta()">
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Nombre</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" formControlName="nombre">
+                                    </div>
+                                    <div *ngIf="formCrearCuenta.controls['nombre'].getError('required') && formCrearCuenta.controls['nombre'].touched" class="col-12 text-danger">
+                                        El nombre es requerido
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">RUT</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" formControlName="rut" (input)="inputEvent($event)">
+                                    </div>
+                                    <div *ngIf="formCrearCuenta.controls['rut'].getError('required') && formCrearCuenta.controls['rut'].touched" class="col-12 text-danger">
+                                        El rut es requerido
+                                    </div>
+        
+                                    <div *ngIf="formCrearCuenta.controls['rut'].getError('rutnovalido') && formCrearCuenta.controls['rut'].touched" class="col-12 text-danger">
+                                        El rut no es valido
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Contraseña</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="password" class="form-control" formControlName="password">
+                                    </div>
+                                    <div *ngIf="formCrearCuenta.controls['password'].getError('required') && formCrearCuenta.controls['password'].touched" class="col text-danger">
+                                        La contraseña es requerida
+                                    </div>
+        
+                                    <div *ngIf="formCrearCuenta.controls['password'].getError('pattern') && formCrearCuenta.controls['password'].touched" class="col text-danger">
+                                        El formato de la contraseña no es correcto
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Email</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" formControlName="email">
+                                    </div>
+                                    <div *ngIf="formCrearCuenta.controls['email'].getError('required') && formCrearCuenta.controls['email'].touched" class="col-12 text-danger">
+                                        El correo electrónico es requerido
+                                    </div>
+                                    <div *ngIf="formCrearCuenta.controls['email'].getError('pattern') && formCrearCuenta.controls['email'].touched" class="col-12 text-danger">
+                                        El formato del correo electrónico no es correcto
+                                    </div>
+                                </div>
+
+                                <br>
+                                
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Dirección</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" formControlName="direccion">
+                                    </div>
+                                    <div *ngIf="formCrearCuenta.controls['direccion'].getError('required') && formCrearCuenta.controls['direccion'].touched" class="col-12 text-danger">
+                                        La dirección es requerida
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-12 col-md-8">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label">Nivel</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <select class="form-select" aria-label="Default select example" formControlName="nivel">
+                                                    <option selected>Seleccione una opción</option>
+                                                    <option value="1° Básico">1° Básico</option>
+                                                    <option value="2° Básico">2° Básico</option>
+                                                    <option value="3° Básico">3° Básico</option>
+                                                    <option value="4° Básico">4° Básico</option>
+                                                    <option value="5° Básico">5° Básico</option>
+                                                    <option value="6° Básico">6° Básico</option>
+                                                    <option value="7° Básico">7° Básico</option>
+                                                    <option value="8° Básico">8° Básico</option>
+                                                    <option value="1° Medio">1° Medio</option>
+                                                    <option value="2° Medio">2° Medio</option>
+                                                    <option value="3° Medio">3° Medio</option>
+                                                    <option value="4° Medio">4° Medio</option>
+                                                  </select>
+                                            </div>
+                                            <div *ngIf="formCrearCuenta.controls['nivel'].getError('required') && formCrearCuenta.controls['nivel'].touched" class="col-12 text-danger">
+                                                El nivel es requerido
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-12 col-md-4">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label">Sección</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="text" class="form-control" formControlName="seccion">
+                                            </div>
+                                            <div *ngIf="formCrearCuenta.controls['seccion'].getError('required') && formCrearCuenta.controls['seccion'].touched" class="col-12 text-danger">
+                                                La sección es requerida
+                                            </div>
+                                            <div *ngIf="formCrearCuenta.controls['seccion'].getError('pattern') && formCrearCuenta.controls['seccion'].touched" class="col-12 text-danger">
+                                                La sección solo puede contener una letra Mayúscula
+                                            </div>
+                                            <div *ngIf="formCrearCuenta.controls['seccion'].getError('minlength') && formCrearCuenta.controls['seccion'].touched" class="col-12 text-danger">
+                                                La sección debe tener largo 1
+                                            </div>
+                                            <div *ngIf="formCrearCuenta.controls['seccion'].getError('maxlength') && formCrearCuenta.controls['seccion'].touched" class="col-12 text-danger">
+                                                La sección debe tener largo 1
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Apoderado</label>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <select class="form-select form-select-m" aria-label=".form-select-sm example" formControlName="idApoderado">
+                                            <option disabled selected>Seleccione un curso</option>
+                                            <option *ngFor="let apoderado of apoderados" [ngValue]="apoderado.idUsuario">
+                                                <div >
+                                                    {{apoderado.idUsuario}} - {{apoderado.nombre}}
+                                                </div>
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div *ngIf="formCrearCuenta.controls['idApoderado'].getError('required') && formCrearCuenta.controls['idApoderado'].touched" class="col-12 text-danger">
+                                        La sección es requerida
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-6 col-md-3">
+                                        <a (click)="volver()">
+                                            <button type="button" class="btn btn-danger">Cancelar</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <button type="submit" class="btn btn-success" [disabled]="formCrearCuenta.invalid">Guardar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

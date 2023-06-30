@@ -35,6 +35,7 @@ export class CertificadosAlumnoComponent {
   }
 
   solicitarCertificado(){
+
     this.showInfo = false;
     this.showMessage = true;
 

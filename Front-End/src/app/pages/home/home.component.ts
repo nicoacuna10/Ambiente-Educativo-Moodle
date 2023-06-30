@@ -14,7 +14,7 @@ export class HomeComponent {
   constructor(private cursoService: CursoService){}
 
   ngOnInit(){
-    if(this.user.idTipo==1){
+    if(this.user.idTipo=="1"){
       this.cursoService.getCursos(this.user.idUsuario).subscribe( res=>{
         let largo = Object.keys(res).length;
         if(largo > 0){

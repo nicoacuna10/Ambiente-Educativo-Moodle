@@ -24,6 +24,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { PerfilAdministradorComponent } from './pages/perfil-administrador/perfil-administrador.component';
 import { UsuariosAdministradorComponent } from './pages/usuarios-administrador/usuarios-administrador.component';
 import { CursosAdministradorComponent } from './pages/cursos-administrador/cursos-administrador.component';
+import { EditarPerfilAlumnoComponent } from './pages/editar-perfil-alumno/editar-perfil-alumno.component';
+import { CrearCuentaAdministradorComponent } from './pages/crear-cuenta-administrador/crear-cuenta-administrador.component';
+import { CrearCuentaDocenteComponent } from './pages/crear-cuenta-docente/crear-cuenta-docente.component';
+import { CrearCuentaApoderadoComponent } from './pages/crear-cuenta-apoderado/crear-cuenta-apoderado.component';
+import { CrearCuentaAlumnoComponent } from './pages/crear-cuenta-alumno/crear-cuenta-alumno.component';
 
 
 registerLocaleData(localeEs);
@@ -44,6 +49,11 @@ registerLocaleData(localeEs);
     PerfilAdministradorComponent,
     UsuariosAdministradorComponent,
     CursosAdministradorComponent,
+    EditarPerfilAlumnoComponent,
+    CrearCuentaAdministradorComponent,
+    CrearCuentaDocenteComponent,
+    CrearCuentaApoderadoComponent,
+    CrearCuentaAlumnoComponent,
   ],
   imports: [
     BrowserModule,

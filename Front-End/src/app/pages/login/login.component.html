@@ -55,11 +55,14 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div *ngIf="showMensaje" class="alert alert-danger" role="alert">
-                                Creedenciales incorrectas
+                        <div *ngIf="showMensaje">
+                            <div class="row">
+                                <div  class="alert alert-danger col-12" role="alert">
+                                    Creedenciales incorrectas
+                                </div>
                             </div>
                         </div>
+
                     </form>
                 </div>
             

@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="fondo">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="editar-perfil-section">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <h1>Editar Perfil</h1>
+                                </div>
+                            </div>
+
+                            <form [formGroup]="formEditarPerfil" (ngSubmit)="editarPerfil()">
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Nombre</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" formControlName="nombre">
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Contraseña</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="password" class="form-control" formControlName="password">
+                                    </div>
+        
+                                    <div *ngIf="formEditarPerfil.controls['password'].getError('pattern') && formEditarPerfil.controls['password'].touched" class="col text-danger">
+                                        El formato de la contraseña no es correcto
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Email</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" formControlName="email">
+                                    </div>
+
+                                    <div *ngIf="formEditarPerfil.controls['email'].getError('pattern') && formEditarPerfil.controls['email'].touched" class="col-12 text-danger">
+                                        El formato del correo electrónico no es correcto
+                                    </div>
+                                </div>
+                                
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label">Dirección</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" formControlName="direccion">
+                                    </div>
+                                </div>
+
+                               <br>
+
+                                <div class="row">
+                                    <div class="col-6 col-md-3">
+                                        <a (click)="volver()">
+                                            <button type="button" class="btn btn-danger">Cancelar</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <button type="submit" class="btn btn-success" [disabled]="formEditarPerfil.invalid">Guardar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import { RutService } from 'rut-chileno';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
-import { CursoService } from 'src/app/services/curso/curso.service';
 import { Usuario } from '../../interfaces/usuario';
 
 
@@ -22,7 +21,7 @@ export class LoginComponent {
 
   formInicioSesion!:FormGroup;
   
-  constructor(private formBuilder:FormBuilder, private usuarioService:UsuarioService, private cursoService: CursoService, private rutService:RutService, private router: Router) {}
+  constructor(private formBuilder:FormBuilder, private usuarioService:UsuarioService, private rutService:RutService, private router: Router) {}
 
 
   ngOnInit(){
@@ -46,7 +45,7 @@ export class LoginComponent {
     
     const password = this.formInicioSesion.value.password;
 
-    this.usuarioService.getUsuario(rut, password).subscribe( res =>{
+    this.usuarioService.login(rut, password).subscribe( res =>{
       let largo = Object.keys(res).length;
       if(largo == 1){
         this.user = res.valueOf();

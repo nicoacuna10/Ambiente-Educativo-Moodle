@@ -1,5 +1,8 @@
 const router = require('express').Router()
 const conexion = require('./config/conexion')
+const bodyParser = require('body-parser');
+
+var jsonParser = bodyParser.json()
 
 
 // Iniciar Sesion
@@ -15,6 +18,18 @@ router.get('/login/:rut/:password', (req, res) =>{
     });
 
 });
+
+// Obtener usuario
+router.get('/usuario/:idUsuario', (req, res) =>{
+    const {idUsuario} = req.params;
+    let sql = `select * from Usuario where idUsuario='${idUsuario}'`;
+    conexion.query(sql, (error, results, fields) =>{
+        if (error) throw error;
+        else{
+            res.json(results);
+        }
+    })
+})
 
 // Obtener datos academicos alumno
 router.get('/alumno/:idAlumno', (req, res) =>{
@@ -106,10 +121,12 @@ router.get('/notas/:idAlumno/:codCurso', (req, res) =>{
 // obtener eventos
 router.get('/eventos/:idAlumno', (req, res) => {
     const {idAlumno} = req.params;
-    let sql = `select ac.tipo_evaluacion, c.fecha
+    let sql = `select ac.tipo_evaluacion, c.fecha, cu.nombre
                 from Alumno_Clase ac
                 inner join Clase c
                 on ac.idClase = c.idClase
+                inner join Curso cu
+                on c.codCurso=cu.codCurso
                 where ac.idAlumno='${idAlumno}' and tipo_evaluacion IS NOT NULL`;
     conexion.query(sql, (error, results, fields) =>{
         if (error) throw error;
@@ -137,6 +154,156 @@ router.get('/cursos', (req, res) =>{
         if (error) throw error;
         else{
             res.json(results);
+        }
+    })
+})
+
+// Crear cuenta alumno
+router.post('/crear-cuenta-alumno', jsonParser, (req, res) =>{
+    const nombre = req.body.nombre;
+    const rut = req.body.rut;
+    const password = req.body.password;
+    const email = req.body.email;
+    const direccion = req.body.direccion;
+    const nivel = req.body.nivel;
+    const seccion = req.body.seccion;
+    const idApoderado = req.body.idApoderado;
+    const idTipo = 1;
+    let sql1 = `SELECT CAST(idUsuario as int) as idUsuario_int FROM Usuario ORDER BY idUsuario_int desc LIMIT 1;`;
+    conexion.query(sql1, (error, results, fields) =>{
+        if (error) throw error;
+        else{
+            if(results.length==1){
+                //console.log(results[0].idUsuario_int)
+
+                const idUsuario = String(results[0].idUsuario_int+1).padStart(10, 0);
+
+                let sql2 = `insert into Usuario values('${idUsuario}', '${nombre}', '${rut}', '${password}', '${email}', '${direccion}', '${idTipo}')`;
+                conexion.query(sql2, (error, results, fields) =>{
+                    if(error) throw error;
+                    else{
+                        let sql3 = `insert into Alumno values('${idUsuario}', '${nivel}', '${seccion}', '${idApoderado}')`;
+                        conexion.query(sql3, (error, results, fields) =>{
+                            res.json({"mensaje": true})
+                        })
+                    }
+                })
+            }
+        }
+    })
+})
+
+// Crear cuenta docente
+router.post('/crear-cuenta-docente', (req, res) =>{
+    const nombre = req.body.nombre;
+    const rut = req.body.rut;
+    const password = req.body.password;
+    const email = req.body.email;
+    const direccion = req.body.direccion;
+    const idTipo = req.body.idTipo;
+    let sql1 = `SELECT CAST(idUsuario as int) as idUsuario_int FROM Usuario ORDER BY idUsuario_int desc LIMIT 1;`;
+    conexion.query(sql1, (error, results, fields) =>{
+        if (error) throw error;
+        else{
+            if(results.length==1){
+                //console.log(results[0].idUsuario_int)
+
+                const idUsuario = String(results[0].idUsuario_int+1).padStart(10, 0);
+
+                let sql2 = `insert into Usuario values('${idUsuario}', '${nombre}', '${rut}', '${password}', '${email}', '${direccion}', '${idTipo}')`;
+                conexion.query(sql2, (error, results, fields) =>{
+                    if(error) throw error;
+                    else{
+                        let sql3 = `insert into Docente values('${idUsuario}')`;
+                        conexion.query(sql3, (error, results, fields) =>{
+                            res.json({"mensaje": true})
+                        })
+                        
+                    }
+                })
+            }
+        }
+    })
+})
+
+// Crear cuenta administrador
+router.post('/crear-cuenta-administrador', (req, res) =>{
+    const nombre = req.body.nombre;
+    const rut = req.body.rut;
+    const password = req.body.password;
+    const email = req.body.email;
+    const direccion = req.body.direccion;
+    const idTipo = req.body.idTipo;
+    let sql1 = `SELECT CAST(idUsuario as int) as idUsuario_int FROM Usuario ORDER BY idUsuario_int desc LIMIT 1;`;
+    conexion.query(sql1, (error, results, fields) =>{
+        if (error) throw error;
+        else{
+            if(results.length==1){
+                //console.log(results[0].idUsuario_int)
+
+                const idUsuario = String(results[0].idUsuario_int+1).padStart(10, 0);
+
+                let sql2 = `insert into Usuario values('${idUsuario}', '${nombre}', '${rut}', '${password}', '${email}', '${direccion}', '${idTipo}')`;
+                conexion.query(sql2, (error, results, fields) =>{
+                    if(error) throw error;
+                    else{
+                        res.json({"mensaje": true})
+                    }
+                })
+            }
+        }
+    })
+})
+
+// Crear cuenta apoderado
+router.post('/crear-cuenta-apoderado', jsonParser, (req, res) =>{
+    const nombre = req.body.nombre;
+    const rut = req.body.rut;
+    const password = req.body.password;
+    const email = req.body.email;
+    const direccion = req.body.direccion;
+    const telefono = req.body.telefono
+    const idTipo = 4;
+    let sql1 = `SELECT CAST(idUsuario as int) as idUsuario_int FROM Usuario ORDER BY idUsuario_int desc LIMIT 1;`;
+    conexion.query(sql1, (error, results, fields) =>{
+        if (error) throw error;
+        else{
+            if(results.length==1){
+                //console.log(results[0].idUsuario_int)
+
+                const idUsuario = String(results[0].idUsuario_int+1).padStart(10, 0);
+
+                let sql2 = `insert into Usuario values('${idUsuario}', '${nombre}', '${rut}', '${password}', '${email}', '${direccion}', '${idTipo}')`;
+                conexion.query(sql2, (error, results, fields) =>{
+                    if(error) throw error;
+                    else{
+                        let sql3 = `insert into Apoderado values('${idUsuario}', '${telefono}')`;
+                        conexion.query(sql3, (error, results, fields) =>{
+                            res.json({"mensaje": true})
+                        })
+                    }
+                })
+            }
+        }
+    })
+})
+
+// Editar perfil
+router.put('/editar-perfil', (req, res) =>{
+    const idUsuario = req.body.idUsuario;
+    const nombre = req.body.nombre;
+    const password = req.body.password;
+    const email = req.body.email;
+    const direccion = req.body.direccion;
+
+    let sql = `update Usuario
+                set nombre='${nombre}', password='${password}', email='${email}', direccion='${direccion}'
+                where idUsuario='${idUsuario}'`;
+
+    conexion.query(sql, (error, results, fields) =>{
+        if(error) throw error;
+        else{
+            res.json({mensaje: true});
         }
     })
 })

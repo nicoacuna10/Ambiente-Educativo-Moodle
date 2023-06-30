@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { AlumnoService } from '../../services/alumno/alumno.service';
+import { Usuario } from 'src/app/interfaces/usuario';
 import { Alumno } from '../../interfaces/alumno';
 
 @Component({
@@ -9,22 +12,39 @@ import { Alumno } from '../../interfaces/alumno';
 })
 export class PerfilAlumnoComponent {
 
-  user: any = JSON.parse(localStorage.getItem("usuario") || "[]");
+  idUsuario: any = JSON.parse(localStorage.getItem('usuario')!).idUsuario;
+  //user: any = JSON.parse(localStorage.getItem("usuario") || "[]");
+  user!: Usuario;
 
   alumno!: Alumno;
-
-
-
-  constructor(private alumnoService: AlumnoService){}
+  constructor(private router: Router, private usuarioService: UsuarioService, private alumnoService: AlumnoService){}
 
   ngOnInit(){
 
+    this.user ={
+      idUsuario: this.idUsuario,
+      nombre: '',
+      rut: '',
+      password: '',
+      email: '',
+      direccion: '',
+      idTipo: 1
+    }
+
     this.alumno ={
-      idAlumno: this.user.idUsuario,
+      idAlumno: this.idUsuario,
       nivel: '',
       seccion: '',
       idApoderado: ''
     }
+
+    this.usuarioService.getUsuario(this.user.idUsuario).subscribe( res=>{
+      let largo = Object.keys(res).length;
+      if(largo == 1){
+        this.user = Object.values(res)[0];
+      }
+    }, error => console.log(error)
+    )
 
     this.alumnoService.getAlumno(this.user.idUsuario).subscribe( res=>{
       let largo = Object.keys(res).length;
@@ -33,6 +53,10 @@ export class PerfilAlumnoComponent {
       }
     }, error => console.log(error)
     )
+  }
+
+  editarPerfil(){
+    this.router.navigate(['editar-perfil-alumno']);
   }
 
   

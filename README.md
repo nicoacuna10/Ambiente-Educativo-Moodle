@@ -1,6 +1,8 @@
 # Ambiente-Educativo-Moodle
 Nicolás Acuña Órdenes
+
 Javier Andaur Fariña
+
 Nathalia Trigo Guerra
 
 ## Back-End
